@@ -33,12 +33,14 @@ print("Reading Files")
 features<-read.table(paste(dataDir,"features.txt",sep="/"));
 
 # read in 3 data files for training data
-trainx<-read.table(paste(dataDir,trainx_file,sep="/")); colnames(trainx)<-features[,2];
+trainx<-read.table(paste(dataDir,trainx_file,sep="/")); 
+colnames(trainx)<-features[,2]; # change col names
 trainy<-read.table(paste(dataDir,trainy_file,sep="/"));
 trainsub<-read.table(paste(dataDir,trainsub_file,sep="/")); 
 
 # read in 3 data files for test data
-testx<-read.table(paste(dataDir,testx_file,sep="/")); colnames(testx)<-features[,2];
+testx<-read.table(paste(dataDir,testx_file,sep="/")); 
+colnames(testx)<-features[,2]; # change col names
 testy<-read.table(paste(dataDir,testy_file,sep="/"));
 testsub<-read.table(paste(dataDir,testsub_file,sep="/")); 
 
@@ -103,6 +105,6 @@ cleansummary<-ddply(cleanresults, .(Subject, Activity),  numcolwise(mean))
 # test for average of Subject 1, Activity 1, it's equal to [1] 0.2773308
 # mean(cleanresults[cleanresults$Subject==1 & cleanresults$Activity ==1,3])
 print("Writing results")
-write.table(cleansummary,"cleansummary.csv",sep = ",", row.names=FALSE)
+write.table(cleansummary,"summary.csv",sep = ",", row.names=FALSE)
 print("Complete.")
 }
