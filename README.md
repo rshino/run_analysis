@@ -17,7 +17,7 @@ Notes
 - Read the function file which describes the column names of test and training observations
 - Read the 3 files for training set, Subject, Activity and Measurement
 - Read the 3 files for the test set, Subject, Activity and Measurement
-- Rename columns of all data sets to be human-readable
+- Rename columns of all data sets to be descriptive and human-readable
 - Merge training and test data
 - Create clean output containing only mean and std dev measurement data
 - Summarize all measurement data by Subject and Activity 

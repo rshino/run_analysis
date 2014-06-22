@@ -13,7 +13,6 @@
 # 5. Creates a second, independent tidy data set with the average of each variable for each activity 
 #    and each subject. 
 #
-# setwd("/nfs-thecus/home/shino/R-programs/03. Getting and Cleaning Data/Project")
 
 run_analysis <- function(){
 
@@ -88,13 +87,8 @@ for(i in 1:ncol(rawresults))
     if(length(grep("(-mean()|-std())",cn,ignore.case = TRUE))!=0)  # seek column names containing mean and std
     {
         cleanresults[cn]=rawresults[cn]
- #       lapply(cleanresults[cn],as.numeric)
     }
 }
-
-# lapply(cleanresults,as.numeric)
-# Observation: note backquote to protects against special characters in the name
-# ddply(cleanresults, .(Subject, Activity), summarise,avg=mean(`tBodyAcc-mean()-X`))
 
 # clean up the column names a bit to "legal" characters, will help humans looking at this data
 colnames(cleanresults)<-gsub("[-]","_",colnames(cleanresults))
